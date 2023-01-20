@@ -1,0 +1,182 @@
+<div class="container-wrap">
+    <main style="max-width: 70%;max-height: 1900px; margin-top: 40px;margin-bottom: 10px;" class="container">
+
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+            <!-- <img data-image="black" src="images/black.png" alt="">
+      <img data-image="blue" src="images/blue.png" alt=""> -->
+            <img style="margin-top: 1px;" class="active"
+                src="https://localhost:44360/{{mProduct.productImage}}?timestamp={{timestamp}}" alt="image">
+            <!-- <img  class="active" src="https://localhost:44360/{{mProduct.productImage}}?timestamp={{timestamp}}" alt=""> -->
+        </div>
+
+
+
+        <p>&#160; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+        <p>
+            <!-- Right Column -->
+        <div class="right-column">
+
+            <!-- Product Description -->
+            <div class="product-description">
+                <h1>{{mProduct.productName}}</h1>
+                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would
+                    have been rewritten a thousand times and everything that was left from its origin would be the word
+                    "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing
+                    the copy said could convince her and so it didn’t take long until a few insidious Copy Writers
+                    ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they
+                    abused her for their.</p>
+            </div>
+
+            <!-- Product Configuration -->
+            <div class="product-configuration">
+                
+                <!-- Cable Configuration -->
+                <div class="cable-config">
+                    <p>Product ID <strong>:</strong><strong>&nbsp;{{mProduct.productId}}</strong></p>
+                </div>
+                <div class="cable-config">
+                    <p>Product Stock <strong>:</strong><strong>&nbsp;{{mProduct.productAmount}}</strong></p>
+                </div>
+            </div>
+
+            <!-- Product Pricing -->
+            <div class="product-price cable-choose">
+                <button>{{mProduct.productPrice}}฿</button>
+                <button href="#" style="background-color: #7dc855; color: #fff;" (click)="addToCart(mProduct)" class="cart-btn">Add to cart</button>
+                <button style="background-color: red; color: #fff;" type="button"
+                    (click)="onClickCancel()">Cancel</button>
+            </div>
+            
+        </div>
+    </main>
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-lg-3">
+                <img class="imgSize m-2" src="assets/noimg.png" alt="" width="300" />
+            </div>
+            
+            <div class="col-lg-3">
+                <img class="imgSize m-2" src="assets/noimg.png" alt="" width="300" />
+            </div>
+
+            <div class="col-lg-3">
+                <img class="imgSize m-2" src="assets/noimg.png" alt="" height="370" width="300" />
+            </div>
+
+
+            <div class="col-lg-3">
+                <img class="imgSize m-2" src="https://localhost:44360/{{mProduct.productImage}}?timestamp={{timestamp}}" alt="" height="370" width="270" />
+            </div>
+            
+            <!-- <div class="col-lg-3">
+                <img src="img/animalia-3208412_960_720.jpg" alt="" width="300" />
+            </div>
+            <div class="col-lg-3">
+                <img src="img/cat-3217406_960_720.jpg" alt="" width="300" />
+            </div>
+            <div class="col-lg-3">
+                <img src="img/cute-3206543_960_720.jpg" alt="" width="300" />
+            </div> -->
+            <td class="tt" mat-cell *matCellDef="let row">
+                <ng-container *ngIf="row.productImage; else elseTemplate">
+                  <img class="imgSize m-2" src="https://localhost:44360/{{mProduct.productImage}}?timestamp={{timestamp}}" src="{{row.productImage}}?timestamp={{timestamp}}" alt="">
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <img class="imgSize m-2" src="assets/noimg.png" alt="">
+                </ng-template>
+              </td>
+
+        </div>
+
+    </div>
+
+
+</div>
+<div class="container-wrap">
+    <br>
+    <br>
+    <br>
+
+    <div class="text-center">
+        <img src="assets/Home/images/01.jpg" width="600px" />
+    </div>
+    <div>
+
+        <div style="text-align: center;">
+            <br>
+            <br>
+            <br>
+            <div class="heading-section text-center">
+                <h2 class="mb-4">Welcome to <span class="flaticon-pizza">Pizza</span> A Restaurant</h2>
+            </div>
+
+
+
+            <h4 class="text-center" style="text-align: center;">On her way she met a copy. The copy warned the Little
+                Blind Text, that where it came from it
+                would have
+                been rewritten a thousand times and everything that was left from its origin would be the word
+                "and" and
+                the Little Blind Text should turn around and return to its own, safe country. But nothing the
+                copy said
+                could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her,
+                made her
+                drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
+            </h4>
+
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <section class="ftco-counter ftco-bg-dark img" id="section-counter"
+        style="background-image: url(assets/Home/images/bg_2.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <div class="icon"><span class="flaticon-pizza-1"></span></div>
+                                    <strong class="number" data-number="100">100</strong>
+                                    <span>Pizza Branches</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <div class="icon"><span class="flaticon-medal"></span></div>
+                                    <strong class="number" data-number="0">85</strong>
+                                    <span>Number of Awards</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <div class="icon"><span class="flaticon-laugh"></span></div>
+                                    <strong class="number" data-number="10567">10567</strong>
+                                    <span>Happy Customer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <div class="icon"><span class="flaticon-chef"></span></div>
+                                    <strong class="number" data-number="900">900</strong>
+                                    <span>Staff</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

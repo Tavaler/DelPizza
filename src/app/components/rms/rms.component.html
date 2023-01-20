@@ -1,0 +1,97 @@
+<div class="content-wrapper ">
+
+    <div class="d-flex justify-content-between bg-white align-items-center">
+        <mat-form-field appearance="outline" class="w-50">
+            <mat-label>Search rm</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex.ium" #input>
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+        <button class="example-button-row" color="primary" mat-flat-button routerLink="/rms-create">
+        <mat-icon>add</mat-icon> Add Rm
+      </button>
+    </div>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort class="table-hover">
+
+            <!-- ID Column  -->
+            <ng-container matColumnDef="rmId">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.rmId}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="rmImage">
+                <th mat-header-cell *matHeaderCellDef> Image </th>
+                <td class="tt" mat-cell *matCellDef="let row">
+                    <ng-container *ngIf="row.rmImage; else elseTemplate">
+                        <img class="imgSize m-2" src="{{row.rmImage}}?timestamp={{timestamp}}" alt="">
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                        <img class="imgSize m-2" src="assets/noimg.png" alt="">
+                    </ng-template>
+                </td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="prId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> PrId </th>
+          <td mat-cell *matCellDef="let row"> {{row.prId}} </td>
+        </ng-container> -->
+
+            <!-- PType Column -->
+            <!-- <ng-container matColumnDef="ptype.ptypeName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> PtypeId </th>
+          <td mat-cell *matCellDef="let row"> {{row.ptype.ptypeName}} </td>
+        </ng-container> -->
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="rmName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.rmName}} </td>
+            </ng-container>
+
+            <!-- PriceColumn -->
+            <ng-container matColumnDef="rmPrice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                <td mat-cell *matCellDef="let row"> {{row.rmPrice}} </td>
+                <!-- <td mat-cell *matCellDef="let row"> {{row.ProductPrice | number:'1.2-2'}} </td> -->
+            </ng-container>
+
+            <!-- StockColumn -->
+            <ng-container matColumnDef="rmStock">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
+                <td mat-cell *matCellDef="let row"> {{row.rmStock}} </td>
+                <!-- <td mat-cell *matCellDef="let row"> {{row.ProductPrice | number:'1.2-2'}} </td> -->
+            </ng-container>
+
+
+            <ng-container matColumnDef="Edit">
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let row">
+                    <button [routerLink]="[ '/rms-edit', row.productId ]" class="m-2" mat-mini-fab color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Delete">
+                <th mat-header-cell *matHeaderCellDef> Delete </th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-mini-fab color="accent" (click)="deleteRm(row.rmId)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">ไม่พบข้อมูล "{{input.value}}"</td>
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>

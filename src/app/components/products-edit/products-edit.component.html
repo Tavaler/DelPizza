@@ -1,0 +1,104 @@
+<div class="content-wrapper">
+  <mat-card class="example-card">
+
+    <form (submit)="onEditProduct(productForm)" #productForm="ngForm">
+      <mat-card-header class="d-flex justify-content-between align-items-center">
+        <mat-card-title>Create Product</mat-card-title>
+        <div>
+          <button [disabled]="productForm.form.invalid" type="submit" mat-raised-button color="primary"
+            class="mr-2">Submit</button>
+          <button type="button" mat-raised-button color="warn" (click)="onClickCancel()">Cancel</button>
+        </div>
+      </mat-card-header>
+
+      <mat-card-content class="mt-2">
+        <div class="row">
+
+          <div class="col-md-4">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Id</mat-label>
+              <input readonly [(ngModel)]="mProduct.productId" name="productId" matInput type="number" required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-8">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Name</mat-label>
+              <!-- <input [(ngModel)]="mProduct.name" name="name" matInput type="text" required> -->
+              <input matInput #localName="ngModel" required
+                [ngClass]="{'is-invalid': localName.errors && localName.touched}" type="text"
+                [(ngModel)]="mProduct.productName" name="productName" placeholder="enter name" />
+              <div class="invalid-feedback">
+                กรุณากรอกข้อมูลให้ถูกต้อง
+              </div>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Price</mat-label>
+              <!-- <input [(ngModel)]="mProduct.price" name="price" matInput type="number" required> -->
+              <input matInput #localPrice="ngModel" required
+                [ngClass]="{'is-invalid': localPrice.errors && localPrice.touched}" type="number"
+                [(ngModel)]="mProduct.productPrice" name="productPrice" placeholder="enter price" />
+              <div class="invalid-feedback">
+                กรุณากรอกข้อมูลให้ถูกต้อง
+              </div>
+            </mat-form-field>
+          </div>
+
+          <!-- <div class="col-md-6">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>prId</mat-label>
+  
+                <input matInput #localPr="ngModel" required [ngClass]="{'is-invalid': localPr.errors && localPr.touched}"
+                  type="number" [(ngModel)]="mProduct.prId" placeholder="enter pr" name="prId" />
+                <div class="invalid-feedback">
+                  กรุณากรอกข้อมูลให้ถูกต้อง
+                </div>
+              </mat-form-field>
+            </div> -->
+  
+            <div class="col-md-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Size food</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let p of mtype" [value]="p.ptypeId">
+                    {{p.ptypeName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+  
+
+
+
+        </div>
+      </mat-card-content>
+    </form>
+
+
+    <!---- IMAGE ---->
+    <div class="row">
+      <div class="col-md-6" *ngIf="imageSrc">
+        <img [src]="imageSrc" class="img-fluid border rounded-top rounded-bottom">
+      </div>
+      <div class="col-md-6">
+        <button mat-stroked-button (click)="inputFile.click()" color="primary">
+          <mat-icon>photo</mat-icon>
+          <span>Selected file</span>
+        </button>
+        <input (change)="onUploadImage($event)" hidden #inputFile type="file" accept="productImage/*" id="">
+      </div>
+    </div>
+
+  </mat-card>
+</div>
+
+
+<!-- productId: number;
+    productName?: string;
+    productPrice?: number;
+    productImage: string;
+    prId?: any;
+    ptypeId?: any; -->

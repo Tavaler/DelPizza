@@ -1,0 +1,56 @@
+<div class="main">
+
+    <div class="container" style="background-color: #111;">
+        <div class="booking-content">
+            <div class="booking-image">
+                <img class="booking-img" src="assets/login/colorlib-regform-13/images/iqae94a77877979f3cd86440e8c1e64612-0.jpg" alt="Booking Image">
+            </div>
+            <div class="booking-form">
+                <form #loginForm="ngForm" (submit)="onSubmit(loginForm.value)">
+                    <h2>LOGIN</h2>
+                    <div class="form-group form-input">
+                        <input matInput ngModel name="userEmail" type="email">
+                        <label for="name" class="form-label">Email</label>
+                    </div>
+                    <div class="form-group form-input">
+                        <input matInput ngModel name="userPassword" type="password">
+                        <label for="phone" class="form-label">Password</label>
+                    </div>
+                    <div *ngIf="isError" class="alert alert-danger alert-dismissible">
+                        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                        {{isError}}
+                    </div>
+
+
+                    <!-- <div style="color: lightslategrey;" class="input-group mb-3">
+                            <input ngModel name="UserEmail" type="email" class="form-control" placeholder="Email">
+                            <div class="input-group-append"> 
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" 
+                                    class="btn btn-primary btn-block">Sign In</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <button (click)="onClickRegister()" type="button"
+                                    class="btn btn-danger btn-block">Register</button>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <button (click)="onClickAdmin()" type="button"
+                                    class="btn btn-info btn-block">Admin</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

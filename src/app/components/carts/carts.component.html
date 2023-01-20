@@ -1,0 +1,87 @@
+<ng-container *ngIf="datacart.length != 0;">
+    <div class="container">
+        
+    </div>
+    <div  class="card-table">
+        <div  class="cart-product">
+            <table style="background-color: #fff;" class="table">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Detail</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of datacart;let i = index;">
+                        <td>{{i+1}}</td>
+                        <td>{{item.productName}}</td>
+                        <td>
+                            <img style="width: 120px;" src="https://localhost:44360/{{item.productImage}}" alt="">
+                        </td>
+                        <td>this is Pizza DELICOUS</td>
+                        <td>{{item.productPrice}}</td>
+                        <td>1</td>
+                        <td>{{item.productPrice}}</td>
+                        <td>
+                            <!-- <button (click)="removeItem(item)" mat-fab color="warn" aria-label="Example icon button with a delete icon">
+                                <mat-icon>delete</mat-icon>
+                            </button> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <!-- <td style="color: #000;"  (click)="emptycart()" class="btn btn-danger">Empty Cart</td> -->
+                        <td [routerLink]="['/viewer-product']" class="btn btn-primary">Shop More</td>
+                        <td class="btn btn-success">Checkout</td>
+                        <td style="color: #000;" [routerLink]="['/viewer-pizza-rm']" class="btn btn-info">Custom Pizza Design</td>
+                        <td><strong>Grand Total : {{total}}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="datacart.length == 0;">
+    <div class="container">
+        <div class="card">
+            <h1 class="card-title">My Cart</h1>
+        </div>
+        <div class="center">
+            <img src="https://cdn-icons-png.flaticon.com/512/3154/3154276.png" alt="">
+            <h4>Your cart is empty!</h4>
+            <h6>Add item to it now</h6>
+            <a [routerLink]="['/viewer-product']" class="btn btn-primary">Shop Now</a>
+            or
+            <a [routerLink]="['/viewer-pizza-rm']" class="btn btn-info">Custom Pizza Design</a>
+        </div>
+    </div>
+</ng-container>
+
+
+
+<!-- <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card> -->

@@ -1,0 +1,101 @@
+<div class="content-wrapper mt-3"></div>
+
+<div class="content-wrapper p-4">
+    <mat-card>
+        <form #registerForm="ngForm" class="bg-white mt-2" (submit)="onSubmit(registerForm.value)">
+            <mat-card-header class="d-flex justify-content-between align-items-center">
+                <mat-card-title>Register</mat-card-title>
+                <!-- <div>
+                    <button type="submit" mat-raised-button color="primary" class="mr-2">Submit</button>
+                    <button (click)="onBack()" type="button" mat-raised-button color="warn">Cancel</button>
+                </div> -->
+            </mat-card-header>
+            <mat-card-content class="mt-2">
+                <!-------------------------------------------------------------->
+                <!-- <div class="row">
+                    <div class="col-md-4">
+                        <mat-label>TitleName</mat-label>
+                        <mat-form-field appearance="outline">
+                            
+                            <mat-select ngModel name="TitleId">
+                                <mat-option *ngFor="let Title">
+                                    {{Title.TitleId}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Title Name</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let p of utitle" [value]="p.titleId">
+                                    {{p.titleName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <!-------------------------------------------------------------->
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>FirstName</mat-label>
+
+                            <input matInput ngModel name="userName" type="text" placeholder="FirstName" />
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-8">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>LastName</mat-label>
+                            <input matInput ngModel name="userLastname" type="text" placeholder="LastName" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Email</mat-label>
+                            <!-- required [ngClass]="{'is-invalid': localPrice.errors && localPrice.touched}" -->
+
+                            <input matInput ngModel name="userEmail" type="email" placeholder="Email">
+
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Password</mat-label>
+
+                            <input matInput ngModel name="userPassword" type="password" placeholder="enter password" />
+
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Address</mat-label>
+
+                            <!-- <input matInput ngModel name="UserAddress" type="text" placeholder="enter address" /> -->
+                            <textarea matInput ngModel name="userAddress" type="text"
+                                placeholder="enter address"></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div *ngIf="isError" class="alert alert-warning alert-dismissible">
+                    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                    {{isError}}
+                </div>
+                <div>
+                    <button type="submit" mat-raised-button class="mr-2 bg-danger">Register</button>
+                    <!-- <button type="submit" mat-raised-button color="warn" class="mr-2">Submit</button> -->
+                    <button (click)="onBack()" type="button" mat-raised-button color="primary">Cancel</button>
+                </div>
+            </mat-card-content>
+        </form>
+    </mat-card>
+</div>

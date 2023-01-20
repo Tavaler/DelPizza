@@ -1,0 +1,39 @@
+
+
+<app-pizza></app-pizza>
+<div class="container-wrap" style="background-color: black;">
+
+    <div class="container" style="background-color: black;">
+        <!-- <div class="col-md-7 heading-section justify-content-center mb-5 pb-3 text-center">
+            <h2 class="mb-4">Our Chef</h2>
+            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                there live the blind texts.</p>
+        </div> -->
+        <div class="row" >
+            <div *ngFor="let item of rms" class="col-md-3 text-center">
+                <div class="menu-wrap" >
+                        <div >
+                            <img class="menu-img img mb-4" src="{{item.rmImage}}?timestamp={{timestamp}}" alt="image">
+                        </div>
+                        <div #elseTemplate>
+                            <!-- <img class="menu-img img mb-4" src="assets/noimg.png" alt=""> -->
+                        </div>
+                    <div class="text">
+                        <ng-template *ngIf="item.rmName == null; else elseTemplate1">
+                          <h3  style="color: rgb(66, 66, 66);">Null</h3>  
+                        </ng-template>
+                        <ng-template #elseTemplate1>
+                            <h3  style="color: rgb(66, 66, 66);" >{{item.rmName}}</h3>
+                        </ng-template>
+                        
+                        <p style="color: #bb8b31; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;"><strong>Stock : </strong>{{item.rmStock}}</p>
+                        <p><strong>Price : </strong>{{item.rmPrice | currency:'THB ' }}</p>
+                        <p><a  class="btn btn-white btn-outline-white" (click)="addToCart(item)">Add</a></p>
+                        <!-- <p><a   class="btn btn-white btn-outline-white">View</a></p>     [routerLink]="[ '/viewer-pizza-rm', item.rmId ]"      (click)="addToCart(rms)" -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

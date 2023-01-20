@@ -1,0 +1,33 @@
+/* .table {
+  border-spacing: 0;
+  border-collapse:collapse;
+  width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+   td,th {
+    width: 25%;
+  }
+  
+  .example-button-row {
+    padding: 5px
+  }
+  
+  th.mat-column-id, td.mat-column-id {
+    width: 50px;
+  } */
+
+  table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+}
+th.mat-header-cell {
+    text-align: left;
+    max-width: 300px;
+}
